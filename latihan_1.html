@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<style>
+    body{
+        margin: 0px;
+    }
+    ul{
+        float: right;
+        margin-right: 80px;
+    }
+    ul li{
+        display: inline;
+        margin-left: 20px;
+    }
+    ul li a{
+        text-decoration: none;
+        color: black;
+    }
+    .tempat{
+        background-color: #F8F8FF;
+        margin-top: 15px;
+        padding: 20px 90px 20px 20px;
+    }
+    .profil{
+        background-color: white;
+        padding: 15px;
+    }
+    .profil img{
+        border-radius: 50%;
+        width: 125px;
+        height: 125px;
+        display: inline;
+        float: left;
+        margin-right: 18px;
+    }
+    .kontak{
+        display: table;
+    }
+    .kontak a{
+        margin-left: 145px;
+        border-radius: 10%;
+        height: 35px;
+        width: 75px;
+        background-color: blue;
+        vertical-align: middle;
+        text-align: center;
+        display: table-cell;
+        color: white;
+        text-decoration: none;
+    }
+    .resume{
+        margin-top: -35px;
+        margin-left: 230px;
+        border-radius: 10%;
+        height: 35px;
+        width: 75px;
+        display: table;
+        background-color: white;
+    }
+    .profil button a{
+        color: darkgreen;
+        text-decoration: none;
+    }
+    .garis_pembatas{
+        border-left: 1px solid grey;
+        height: 105px;
+        width: 1px;
+        margin-left: 450px;
+        margin-top: -105px;
+        opacity: 0.3;
+    }
+    .biodata{
+        margin-left: 470px;
+        margin-top: -122.5px;
+        line-height: 0.5;
+    }
+    .biodata p{
+        font-weight: bold;
+    }
+    .biodata p span{
+        font-weight: normal;
+    }
+    .isi{
+        margin-top: 30px;
+        background-color: white;
+    }
+    .isi label{
+        font-weight: 600;
+    }
+    .isi input{
+        width: 99.4%;
+    }
+    .submit{
+        background-color: darkgreen;
+        width: 100%;
+        height: 30px;
+        border-radius: 5px;
+    }
+    .submit a{
+        text-decoration: none;
+        color: white;
+        text-align: center;
+    }
+</style>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Latihan 1</title>
+</head>
+<body>
+    <ul>
+    	<li><a href="#home">HOME</a></li>
+    	<li><a href="#product">PRODUCT</a></li>
+    	<li><a href="#gallery">GALLERY</a></li>
+    	<li><a href="#blog">BLOG</a></li>
+    	<li><a href="#inventory">MY INVENTORY</a></li>
+    </ul>
+    <br><br>
+
+    <div class="tempat">
+        <div class="profil">
+            <img src="laptop.jpg">
+            <h2 style="margin-top: 7.5px; margin-bottom: -10px;">William Soeparman</h2>
+            <p style="color: grey; margin-bottom: 23px">Front end developer</p>
+            <div class="kontak">
+                <a href=#kontak>kontak</a>
+            </div>
+            
+            <button class="resume"><a href="#resume">Resume</a></button>
+
+            <div class="garis_pembatas"></div>
+            <div class="biodata">
+                <p>Availability<span> &ensp; &emsp; Full Time</span></p>
+                <p>Usia<span> &emsp; &emsp; &emsp; &emsp; 20</span></p>
+                <p>Lokasi<span> &emsp; &emsp; &nbsp; &emsp;Kendari, Indonesia</span></p>
+                <p>Pengalaman<span> &emsp; &nbsp; 2</span></p>
+                <p>Email<span> &emsp; &emsp; &emsp; &ensp;williamsoeparman@gmail.com</span></p>
+            </div>    
+        </div>
+
+    <form class="isi">
+        <label>Nama</label><br>
+        <input type="text" name="nama"><br><br>
+        <label>Role</label><br>
+        <input type="text" name="role"><br><br>
+        <label>Availability</label><br>
+        <input type="text" name="Availability"><br><br>
+        <label>Usia</label><br>
+        <input type="text" name="usia"><br><br>
+        <label>Lokasi</label><br>
+        <input type="text" name="lokasi"><br><br>
+        <label>Years Experience</label><br>
+        <input type="text" name="YE"><br><br>
+        <label>Email</label><br>
+        <input type="text" name="email"><br><br>
+    </form>
+    <button class="submit"><a href="#submit">SUBMIT</a></button>
+    </div>
+</body>
+</html>
