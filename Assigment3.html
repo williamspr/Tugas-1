@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<style type="text/css">
+	body{
+		background: url('https://www.hetanews.com/images/20210701/20210701104000-3d.jpg');
+		background-size: cover;
+	}
+	h1{
+		text-align: center;
+		color: white;
+		margin-top: 50px;
+	}
+	#cari{
+		border-style: none;
+		border-radius: 10px;
+		border: 2px solid white;
+		height: 33px;
+		font-family: 'Times New Roman';
+		font-size: 17px;
+		margin-left: 415px;
+	}
+	#Tanggal{
+		height: 37px;
+		font-family: 'Times New Roman';
+		font-size: 15px;
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	#get-data{
+		border-style: none;
+		height: 40px;
+		width: 130px;
+		border-radius: 10px;
+		font-family: 'Times New Roman';
+		color: white;
+		background-color: #800000;
+		font-size: 15px;
+		cursor: pointer;
+	}
+	.kasus_aktif, .kasus_baru, .kasus_sembuh, .total_kasus, .total_kematian, .total_tes{
+		height: 185px;
+		width: 20%;
+		text-align: center;
+		align-items: center;
+		border-radius: 25px;
+	} 
+	.kasus_aktif h4, .kasus_baru h4, .kasus_sembuh h4, .total_kasus h4, .total_kematian h4, .total_tes h4{
+		height: 38px;
+		font-family: verdana;
+		color: white;
+		padding-top: 17px;
+		border-radius: 25px 25px 0px 0px;
+	}
+	.kasus_aktif{
+		background-color: #ffa31a;
+		margin-left: 208px;
+		margin-top: 50px;
+	}
+	.kasus_aktif h4{
+		background-color: #e68a00;
+	}
+	.kasus_baru{
+		background-color: #ff0000;
+		margin-left: 538px;
+		margin-top: -206.5px;
+	}
+	.kasus_baru h4{
+		background-color: #b32d00;	
+	}
+	.kasus_sembuh{
+		background-color: #33ff77;
+		margin-left: 868px;
+		margin-top: -206.5px;
+	}
+	.kasus_sembuh h4{
+		background-color: #009933;
+	}
+	.total_kasus{
+		background-color: #df80ff;
+		margin-left: 208px;
+		margin-top: 50px;
+	}
+	.total_kasus h4{
+		background-color: #990099;
+	}
+	.total_kematian{
+		background-color: #66ccff;
+		margin-left: 538px;
+		margin-top: -206.5px;
+	}
+	.total_kematian h4{
+		background-color: #0088cc;
+	}
+	.total_tes{
+		background-color: #ffff33;
+		margin-left: 868px;
+		margin-top: -206.5px;
+	}
+	.total_tes h4{
+		background-color: #cccc00;
+	}
+	#kasus-aktif, #kasus-baru, #kasus-sembuh, #total-kasus, #total-kematian, #total-tes{
+		font-size: 45px;
+		color: white;
+		font-family: verdana;
+		margin-top: 32.5px;
+	}
+</style>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Assignment 3</title>
+</head>
+
+<body>
+	<h1>COVID-19 TRACKER</h1>
+
+	<input id="cari" type="text" name="search" placeholder="Country">
+	<input id="Tanggal" type="date" name="tanggal" >
+	<button id="get-data">Get Data</button>
+
+	<div class="kasus_aktif">
+		<h4>ACTIVE CASES</h4>
+		<p id="kasus-aktif">0</p>
+	</div>
+
+	<div class="kasus_baru">
+		<h4>NEW CASES</h4>
+		<p id="kasus-baru">0</p>
+	</div>
+
+	<div class="kasus_sembuh">
+		<h4>RECOVERED CASES</h4>
+		<p id="kasus-sembuh">0</p>
+	</div>
+
+	<div class="total_kasus">
+		<h4>TOTAL CASES</h4>
+		<p id="total-kasus">0</p>
+	</div>
+
+	<div class="total_kematian">
+		<h4>TOTAL DEATHS</h4>
+		<p id="total-kematian">0</p>
+	</div>
+
+	<div class="total_tes">
+		<h4>TOTAL TESTS</h4>
+		<p id="total-tes">0</p>
+	</div>
+
+	<script type="text/javascript">
+		const options = {
+	    method: 'GET',
+	    headers: {
+		    'X-RapidAPI-Key': '3e0cdc50bbmsh8764ac6219b8c82p1cccc4jsnfbc3808bf196',
+		    'X-RapidAPI-Host': 'covid-193.p.rapidapi.com'
+	        }
+        };
+ 
+        let tombol = document.getElementById('get-data')
+        tombol.addEventListener('click', function(event) {
+    	    event.preventDefault()
+    	    let Cari = document.getElementById('cari').value
+    	    let tgl = document.getElementById('Tanggal').value
+            fetch(`https://covid-193.p.rapidapi.com/history?country=${Cari}&day=${tgl}`, options)
+	            .then(response => response.json())
+	            .then(response => {
+		            document.getElementById('kasus-aktif').innerHTML = response.response[0].cases.active
+                    document.getElementById('kasus-baru').innerHTML = response.response[0].cases.new
+                    document.getElementById('kasus-sembuh').innerHTML = response.response[0].cases.recovered
+                    document.getElementById('total-kasus').innerHTML = response.response[0].cases.total
+                    document.getElementById('total-kematian').innerHTML = response.response[0].deaths.total
+                    document.getElementById('total-tes').innerHTML = response.response[0].tests.total
+	            })
+	            .catch(err => console.error(err));
+            })
+	</script>
+</body>
+</html>
